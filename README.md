@@ -22,6 +22,17 @@ uv add package-name
 uv run python your_script.py
 ```
 
+### Platform Support
+
+This project supports both Linux and Windows:
+
+- **Linux**: Full CUDA support with GPU acceleration
+- **Windows**: CPU-only mode (CUDA packages are automatically excluded)
+
+The project automatically handles platform-specific dependencies:
+- CUDA packages (nvidia-cufile-cu12, triton) are only installed on Linux
+- Windows installations will use CPU-only versions of PyTorch
+
 ### Requirements
 
 - Python 3.12+
@@ -32,3 +43,11 @@ The project uses Python 3.12.11 and includes dependencies for:
 - JupyterLab (interactive notebooks)
 - PyTorch ecosystem (ML/AI)
 - Various data science libraries (pandas, numpy, matplotlib, etc.)
+
+### Optional CUDA Dependencies
+
+For Linux users who want explicit CUDA support, you can install the optional CUDA dependencies:
+
+```bash
+uv sync --extra cuda
+```
